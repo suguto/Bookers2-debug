@@ -18,17 +18,18 @@
         <td><%= book.body %></td>
 
        <% if current_user.favorited_by?(book) %>
-        <td><%= link_to favorites_path(book_num: book.id),method: :delete do %>
+        <td><%= link_to book_favorites_path(book.id),method: :delete do %>
             ♥
             <% end %>
         </td>
 
        <% else %>
-        <td><%= link_to favorites_path(book_num: book.id), method: :post do %>
+        <td><%= link_to book_favorites_path(book.id), method: :post do %>
              ♡
              <% end %>
         </td>
        <% end %>
+        <td>コメント数:<%= book.book_comments.count %></td>
       </tr>
     <% end %>
   </tbody>
