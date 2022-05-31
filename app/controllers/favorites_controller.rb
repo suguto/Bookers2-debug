@@ -14,10 +14,4 @@ class FavoritesController < ApplicationController
     redirect_to request.referer
   end
 
-  private
-
-  def favorite_params
-    params.require(:favorite).permmit(:good)
-  end
-
 end
