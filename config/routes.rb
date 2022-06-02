@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index,:show,:edit,:update] do
-   resources :relationship,only: [:create, :destroy]
+   resources :relationships,only: [:create, :destroy]
    get "relationships/following"
    get "relationships/follower"
 

@@ -1,4 +1,4 @@
-class RelationshpsController < ApplicationController
+class RelationshipsController < ApplicationController
 
   def following
     @user=User.find(params[:user_id])
@@ -11,13 +11,13 @@ class RelationshpsController < ApplicationController
   end
 
   def create
-    @user=User.find(params[:follower_id])
+    @user=User.find(params[:user_id])
     current_user.follow(@user)
     redirect_to request.referer
   end
 
   def destroy
-    @user=User.find(params[:follower_id])
+    @user=User.find(params[:user_id])
     current_user.unfollow(@user)
   end
 
