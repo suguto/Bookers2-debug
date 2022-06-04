@@ -43,4 +43,14 @@ class User < ApplicationRecord
     self.follower_relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @user = User.where("name LIKE?","#{word}")
+    elsif search == "partial_match"
+      @user = User.where("name LIKE?","%#{word}%")
+    else
+      @user = User.all
+    end
+  end
+
 end
