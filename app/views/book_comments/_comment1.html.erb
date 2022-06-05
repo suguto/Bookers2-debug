@@ -1,0 +1,9 @@
+　　　　<% comments.each do |c| %>
+        <tr>
+          <td><%= image_tag user.get_profile_image,size:"100x100" %><br>
+              <%= user.name %>
+          </td>
+          <td><%= c.comment %></td>
+          <td><%= link_to "Destroy", book_book_comment_path(c.book_id,c.id), method: :delete, class: "btn btn-sm btn-danger", remote: true %></td>
+        </tr>
+　　　　 <% end %>

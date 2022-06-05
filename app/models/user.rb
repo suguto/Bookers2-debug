@@ -24,10 +24,7 @@ class User < ApplicationRecord
     (profile_image.attached?) ? profile_image : 'no_image.jpg'
   end
 
-  def favorited_by?(book)
-    favorites.where(book_id: book.id).exists?
-  end
-
+  
   #すでにフォロー済みであればture返す
   def following?(other_user)
     self.followings.include?(other_user)
